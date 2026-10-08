@@ -1,0 +1,2 @@
+demucs
+numpy>=1.24,<2
