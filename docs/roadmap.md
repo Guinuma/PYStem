@@ -10,7 +10,7 @@ The project uses Demucs as its initial separation engine and aims to provide an 
 
 The project is also a learning journey focused on Python development, digital signal processing, audio programming, software architecture, and graphical user interface development.
 
-**Development status:** Early prototype (v0.1)
+**Development status:** Desktop prototype (v0.3 MVP), with modular CPU backends.
 
 ---
 
@@ -27,7 +27,7 @@ The project is also a learning journey focused on Python development, digital si
 - [x] Configure `.gitignore`.
 - [x] Create the initial project structure.
 - [x] Create `requirements.txt`.
-- [ ] Document installation and usage in `README.md`.
+- [x] Document installation and usage in `README.md`.
 
 ### Audio Separation
 
@@ -109,36 +109,36 @@ The project is also a learning journey focused on Python development, digital si
 
 ### Framework
 
-- [ ] Research PySide6 and PyQt6.
-- [ ] Select a GUI framework.
-- [ ] Create the main application window.
-- [ ] Organize GUI components into separate modules.
-- [ ] Connect the GUI to the separation engine.
+- [x] Select a GUI framework (PySide6; Qt Multimedia for individual preview).
+- [x] Create the main application window.
+- [x] Organize GUI components into separate modules.
+- [x] Connect the GUI to the separation engine.
 
 ### File Management
 
-- [ ] Implement a file selection dialog.
-- [ ] Display the selected filename.
-- [ ] Display audio metadata.
-- [ ] Allow users to select an output directory.
-- [ ] Add drag-and-drop audio importing.
+- [x] Implement a file selection dialog.
+- [x] Display the selected filename.
+- [x] Display audio metadata (format, size, preview duration).
+- [x] Allow users to select an output directory.
+- [x] Add drag-and-drop audio importing.
 
 ### Separation Interface
 
-- [ ] Add a Start Separation button.
-- [ ] Display separation status.
-- [ ] Implement a progress indicator.
-- [ ] Keep the interface responsive during processing.
-- [ ] Display success and error messages.
-- [ ] Allow users to open the output directory.
+- [x] Add a Start Separation button.
+- [x] Display separation status.
+- [x] Implement a progress indicator (indeterminate, with elapsed time).
+- [x] Keep the interface responsive during processing.
+- [x] Display success and error messages.
+- [x] Allow users to open the output directory.
+- [x] Cancel the current job and its child processes.
 
 ### Playback Interface
 
-- [ ] Add Play, Pause, and Stop buttons.
-- [ ] Add a playback timeline.
-- [ ] Display elapsed and total time.
-- [ ] Display loaded stems.
-- [ ] Allow users to switch between tracks.
+- [x] Add Play, Pause, and Stop buttons.
+- [x] Add a playback timeline.
+- [x] Display elapsed and total time.
+- [x] Display loaded stems.
+- [x] Allow users to switch between tracks (individual playback).
 
 ---
 

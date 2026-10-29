@@ -33,6 +33,30 @@ PySide6 é uma dependência opcional da interface; a CLI continua disponível se
 O ambiente MSST mantém-se separado. A compatibilidade de reprodução depende dos
 codecs e dispositivos de áudio disponíveis na instalação Qt/sistema.
 
+![Interface desktop com os resultados de um teste real](docs/frontend-preview.png)
+
+Validação em Windows com PySide6 6.12.0: 24 testes passaram, incluindo oito testes
+desktop (responsividade, sucesso/erro, cancelamento, processos filhos e reprodução
+silenciosa com pausa e procura). Um ensaio real pela janela separou oito segundos
+de áudio sintético com HTDemucs, apresentou os quatro stems e carregou a duração
+correta na pré-escuta. O teste registou 369 eventos de atividade da interface,
+confirmando que o ciclo da janela continuou a responder durante o trabalho.
+O relatório está em `docs/gui-smoke.json`; isto não avalia a qualidade musical.
+Um segundo ensaio cancelou um trabalho HTDemucs real após três segundos e confirmou
+a reposição dos controlos e a ausência de pastas temporárias restantes; o relatório
+está em `docs/gui-cancellation.json`.
+
+```powershell
+# Teste real opcional da interface, usando apenas pesos já em cache:
+.\.venv\Scripts\python.exe tools/gui_smoke.py --report-dir output/gui-novo-teste
+# Teste de cancelamento real:
+.\.venv\Scripts\python.exe tools/gui_smoke.py --report-dir output/gui-novo-cancelamento --cancel-after 3000
+```
+
+Este teste usa a plataforma Qt offscreen, grava imagens de processamento e
+conclusão e valida os WAV. A reprodução foi testada sem som; audição e comportamento
+em diferentes placas de som continuam a precisar de verificação pelo utilizador.
+
 ## Instalar e usar
 
 Python 3.11 e FFmpeg no PATH (incluindo `ffprobe`). No PowerShell, na raiz do projeto:
@@ -206,8 +230,9 @@ Relatórios JSON preservados em `docs/benchmarks/`; os manifests dos pesos em
 `docs/model-artifacts.json`; versões exatas do ambiente opcional em
 `docs/models-environment-lock.txt`. Para reproduzir esse ambiente, instalar a
 lista com `--extra-index-url https://download.pytorch.org/whl/cpu`, numa venv
-separada. Os 16 testes automáticos passaram, incluindo o protocolo MSST com motor
-simulado; esses testes não substituem os ensaios de inferência reais acima.
+separada. Os 24 testes automáticos passaram (16 do motor/benchmark e oito desktop),
+incluindo o protocolo MSST com motor simulado; esses testes não substituem os
+ensaios de inferência reais acima.
 
 Não foram calculados SDR/SI-SDR: não há stems de referência de um conjunto musical
 de avaliação. Tons sintéticos verificam funcionamento, não qualidade em metal,

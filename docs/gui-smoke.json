@@ -1,0 +1,53 @@
+{
+  "heartbeat_ticks": 369,
+  "audio_seconds": 8,
+  "model": "htdemucs",
+  "device": "cpu",
+  "elapsed_seconds": 11.594000000040978,
+  "status": "Pistas prontas · 00:10. Seleciona uma pista para ouvir.",
+  "track_count": 5,
+  "preview_duration_ms": 8000,
+  "stems": [
+    {
+      "file": "bass.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 8.0,
+      "finite": true,
+      "duration_matches": true,
+      "format_matches_input": true,
+      "sha256": "668c326a53644a2ea3fdac0abbbc38a51a6c8664ac9032344c3a8ff22545c91f"
+    },
+    {
+      "file": "drums.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 8.0,
+      "finite": true,
+      "duration_matches": true,
+      "format_matches_input": true,
+      "sha256": "f9d792bd39668ad3a01a088781f77f70f9c2ae5ed385104310025b2898d8daeb"
+    },
+    {
+      "file": "other.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 8.0,
+      "finite": true,
+      "duration_matches": true,
+      "format_matches_input": true,
+      "sha256": "f6da70d0dad9692fbad1853144a610ba1ee1f8ddee22693c34608cc90c5c03de"
+    },
+    {
+      "file": "vocals.wav",
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 8.0,
+      "finite": true,
+      "duration_matches": true,
+      "format_matches_input": true,
+      "sha256": "df92b5748ccf0ffbcf2bdb803355207b05e7bc362bebd5d967a92a27ddad0222"
+    }
+  ],
+  "success": true
+}

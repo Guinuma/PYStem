@@ -1,0 +1,14 @@
+{
+  "heartbeat_ticks": 117,
+  "audio_seconds": 8,
+  "model": "htdemucs",
+  "device": "cpu",
+  "mode": "cancellation",
+  "elapsed_seconds": 3.672000000020489,
+  "status": "Separação cancelada. Podes voltar a tentar.",
+  "track_count": 1,
+  "preview_duration_ms": 8000,
+  "stems": [],
+  "success": true,
+  "temporary_dirs_remaining": []
+}

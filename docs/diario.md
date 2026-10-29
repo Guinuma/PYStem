@@ -95,3 +95,31 @@ licença MIT do motor MSST com a licença de todos os pesos disponíveis.
 
 Por indicação do utilizador, realizar commits por blocos validados e enviá-los
 regularmente para o GitHub. Pesos, ambientes e áudio ficam excluídos do Git.
+
+## Sessão 03 — 29/10/2026
+
+### Primeiro frontend desktop
+
+- Criada uma interface PySide6 em português, com tema escuro, importação por
+  seleção/drag-and-drop, seleção dos cinco modelos e pasta de saída.
+- Trabalho de separação num QThread, logs por sinais e execução do mesmo motor
+  existente. A CLI não passou a depender de Qt.
+- Cancelamento e fecho durante processamento terminam a árvore de processos do
+  trabalho; o contexto do motor continua responsável pela limpeza temporária.
+- Pré-escuta individual com Qt Multimedia: reproduzir/pausa, parar, procurar e
+  ajustar volume. Abrir uma pasta de pistas permite ouvir resultados anteriores.
+- Criado `PYStem.cmd` para abrir a aplicação no Windows e `requirements-gui.txt`
+  para instalar a interface separadamente das dependências de modelos.
+- Passaram 24 testes, incluindo oito novos testes desktop e reprodução silenciosa.
+- Executada inferência HTDemucs real através da janela: quatro stems válidos,
+  duração carregada de 8 s, interface responsiva. Relatório em `docs/gui-smoke.json`
+  e imagem em `docs/frontend-preview.png`. Revisão visual com fontes Windows.
+- Um segundo ensaio cancelou HTDemucs real após três segundos; controlos repostos
+  e sem pastas temporárias restantes (`docs/gui-cancellation.json`).
+
+### Próximo trabalho
+
+Avaliar a interface com músicas reais e audição no dispositivo do utilizador.
+Ainda não existe mistura simultânea/sincronizada, waveform ou gestão gráfica de
+downloads. A indicação de progresso é de atividade e tempo, sem percentagens
+inventadas. Os resultados de áudio sintético não medem qualidade de separação.

@@ -21,6 +21,8 @@ from src.gui import MainWindow
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report-dir", required=True)
+    parser.add_argument("--cancel-after", type=int, default=0, metavar="MS",
+                        help="Test real cancellation after this many milliseconds")
     args = parser.parse_args()
     folder = Path(args.report_dir).resolve()
     folder.mkdir(parents=True, exist_ok=False)
@@ -36,7 +38,8 @@ def main():
     window.audio_output.setMuted(True)
     window.load_audio(audio)
     window.show()
-    result = {"heartbeat_ticks": 0, "audio_seconds": 8, "model": "htdemucs", "device": "cpu"}
+    result = {"heartbeat_ticks": 0, "audio_seconds": 8, "model": "htdemucs", "device": "cpu",
+              "mode": "cancellation" if args.cancel_after else "separation"}
     started = time.monotonic()
     timer = QTimer()
     finishing = False
@@ -53,6 +56,10 @@ def main():
                              len(result["stems"]) == 4 and all(
                                  item["finite"] and item["duration_matches"] and item["format_matches_input"]
                                  for item in result["stems"]))
+        if args.cancel_after:
+            result["temporary_dirs_remaining"] = [str(p) for p in (folder / "stems").rglob("pystem-*")]
+            result["success"] = ("cancelada" in window.status.text() and window.worker is None and
+                                 not result["temporary_dirs_remaining"])
         window.grab().save(str(folder / "completed.png"))
         (folder / "report.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         print(json.dumps(result, ensure_ascii=False))
@@ -71,6 +78,8 @@ def main():
             window.cancel_separation()
 
     window.start_separation()
+    if args.cancel_after:
+        QTimer.singleShot(args.cancel_after, window.cancel_separation)
     timer.timeout.connect(tick)
     timer.start(25)
     return app.exec()
