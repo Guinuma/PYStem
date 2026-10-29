@@ -4,6 +4,35 @@ Separação de áudio local e gratuita, em CPU. O Demucs continua a ser o motor
 predefinido; MDX23C e BS-Roformer usam adaptadores opcionais para um checkout
 local do Music Source Separation Training (MSST).
 
+## Interface desktop
+
+A primeira interface PySide6 permite importar áudio por seleção ou arrastar,
+selecionar os cinco modelos, escolher a pasta de saída e separar em segundo plano.
+Mostra atividade e tempo decorrido, permite cancelar o processo e ouvir cada pista
+com reprodução/pausa, paragem, posição e volume. Também abre pastas de pistas já
+existentes. O áudio não é reproduzido automaticamente.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-gui.txt
+.\.venv\Scripts\python.exe src\gui.py
+```
+
+No Windows, pode também abrir `PYStem.cmd` com duplo clique. `Ctrl+O` importa áudio.
+As definições avançadas mostram os caminhos locais dos modelos opcionais; os
+caminhos padrão apontam para `.tools/msst`, `.venv-models` e `models/` deste projeto.
+Não há downloads pela interface. Pasta de saída, threads e caminhos usados ficam
+guardados nas preferências locais Qt; nenhum áudio é guardado nessas preferências.
+
+O indicador é indeterminado: o motor não fornece uma percentagem global fiável.
+Cancelar, ou fechar a janela durante um trabalho, termina a árvore de processos
+do trabalho e deixa o contexto do motor limpar os temporários. A biblioteca abre
+uma pasta de WAV por música. A reprodução é individual; mistura sincronizada de
+vários stems e visualização de formas de onda ficam para uma próxima versão.
+
+PySide6 é uma dependência opcional da interface; a CLI continua disponível sem Qt.
+O ambiente MSST mantém-se separado. A compatibilidade de reprodução depende dos
+codecs e dispositivos de áudio disponíveis na instalação Qt/sistema.
+
 ## Instalar e usar
 
 Python 3.11 e FFmpeg no PATH (incluindo `ffprobe`). No PowerShell, na raiz do projeto:

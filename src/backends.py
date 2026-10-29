@@ -70,7 +70,7 @@ class MSSTBackend:
 BACKENDS = {"demucs": DemucsBackend(), "msst": MSSTBackend()}
 
 
-def run_separation(audio_path, output_dir="output", options=None):
+def run_separation(audio_path, output_dir="output", options=None, *, runner=None):
     options = options or Options()
     audio = local_file(audio_path, "Audio")
     if options.model not in MODELS:
@@ -94,7 +94,7 @@ def run_separation(audio_path, output_dir="output", options=None):
         env = os.environ.copy()
         env.update(HF_HUB_OFFLINE="1", CUDA_VISIBLE_DEVICES="",
                    OMP_NUM_THREADS=str(options.threads), MKL_NUM_THREADS=str(options.threads))
-        subprocess.run(command, check=True, env=env, timeout=options.timeout)
+        (runner or subprocess.run)(command, check=True, env=env, timeout=options.timeout)
         result = backend.result_dir(outputs, staged, options)
         files = list(result.glob("*.wav"))
         if not files or any(file.stat().st_size <= 44 for file in files):

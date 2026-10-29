@@ -1,0 +1,3 @@
+# Optional desktop interface; keep model dependencies in their existing environments.
+PySide6>=6.8,<7
+psutil>=6,<8
