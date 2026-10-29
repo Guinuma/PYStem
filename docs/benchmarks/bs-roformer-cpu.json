@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-29T18:33:20.973676+00:00",
+  "model": "bs_roformer",
+  "device": "cpu",
+  "threads": 4,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "logical_cpus": 16,
+  "ram_bytes": 33667739648,
+  "audio": {
+    "name": "synthetic.wav",
+    "sha256": "fb1cce7eb57094256b8b7e77800429e7536295921b3670dd802c0eaf831c4f66",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_seconds": 8.0
+  },
+  "synthetic": true,
+  "artifacts": [
+    {
+      "name": "model.ckpt",
+      "bytes": 639331213,
+      "sha256": "5b84f37e8d444c8cb30c79d77f613a41c05868ff9c9ac6c7049c00aefae115aa"
+    },
+    {
+      "name": "config.yaml",
+      "bytes": 1881,
+      "sha256": "42e5635ceab7287b83d9591c9880966f0b61cff26a0a40a29d236bacb32e5f2c"
+    }
+  ],
+  "versions": {
+    "demucs": "4.1.0",
+    "torch": "2.14.1",
+    "numpy": "1.26.4",
+    "psutil": "7.2.2"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 148.99220959981903,
+      "real_time_factor": 18.62402619997738,
+      "sampled_peak_tree_rss_bytes": 2945540096,
+      "outputs_valid": true,
+      "validation_error": null,
+      "stems": [
+        {
+          "file": "bs_roformer\\synthetic\\instrumental.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "39f2efaf02c3cd00237c68531e756e7d85637f885c014359e047e6ac676bf4be"
+        },
+        {
+          "file": "bs_roformer\\synthetic\\vocals.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "2a290c96e5b50e0548441fb6b08bc38641c4e499f4b1b3dea23622422f38609e"
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 155.0782765999902,
+      "real_time_factor": 19.384784574998775,
+      "sampled_peak_tree_rss_bytes": 2945724416,
+      "outputs_valid": true,
+      "validation_error": null,
+      "stems": [
+        {
+          "file": "bs_roformer\\synthetic\\instrumental.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "cdd26389b611749e60a4555309dcaa30ef96f1b5bfec1f760f49a218f6b21571"
+        },
+        {
+          "file": "bs_roformer\\synthetic\\vocals.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "2f6e9cbc28e7ad9f915426bc164e49a24d6a1c327e2827bfc85570015686ce8b"
+        }
+      ]
+    }
+  ],
+  "memory_method": "sampled sum RSS of CLI and descendants every 100ms; shared pages may be counted twice",
+  "timing_method": "end-to-end fresh process, includes imports, loading, staging and export; not inference-only",
+  "quality_metrics": null,
+  "msst_cpu_overrides": {
+    "inference.batch_size": 1,
+    "training.use_amp": false
+  },
+  "versions_scope": "benchmark interpreter; optional MSST environment must be recorded separately",
+  "engine_environment": {
+    "absl-py": "2.5.1",
+    "antlr4-python3-runtime": "4.9.3",
+    "audioread": "3.1.0",
+    "beartype": "0.14.1",
+    "certifi": "2026.10.23",
+    "cffi": "2.1.1",
+    "charset-normalizer": "3.5.2",
+    "cloudpickle": "3.1.2",
+    "colorama": "0.4.6",
+    "contourpy": "1.3.3",
+    "cycler": "0.12.1",
+    "decorator": "5.3.1",
+    "einops": "0.8.1",
+    "filelock": "4.2.4",
+    "fonttools": "4.68.0",
+    "fsspec": "2026.9.0",
+    "idna": "3.20",
+    "Jinja2": "3.1.6",
+    "joblib": "1.6.0",
+    "kiwisolver": "1.5.1",
+    "lazy-loader": "0.6",
+    "librosa": "0.11.0",
+    "llvmlite": "0.50.0",
+    "MarkupSafe": "3.0.3",
+    "matplotlib": "3.10.9",
+    "ml_collections": "1.1.0",
+    "mpmath": "1.3.0",
+    "msgpack": "1.2.4",
+    "narwhals": "2.28.0",
+    "networkx": "3.6.1",
+    "numba": "0.68.1",
+    "numpy": "2.2.6",
+    "omegaconf": "2.3.0",
+    "packaging": "26.3",
+    "pillow": "13.0.0",
+    "pip": "24.0",
+    "platformdirs": "4.14.0",
+    "pooch": "1.9.0",
+    "pycparser": "3.12",
+    "pyparsing": "3.3.3",
+    "python-dateutil": "3.0.0",
+    "PyYAML": "6.0.3",
+    "requests": "2.34.2",
+    "rotary-embedding-torch": "0.3.5",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "setuptools": "65.5.0",
+    "six": "1.17.0",
+    "soundfile": "0.13.1",
+    "soxr": "1.1.0",
+    "sympy": "1.13.1",
+    "threadpoolctl": "3.7.0",
+    "torch": "2.6.0+cpu",
+    "torchaudio": "2.6.0+cpu",
+    "tqdm": "4.70.1",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.6",
+    "urllib3": "2.8.0"
+  },
+  "msst_commit": "6fdad13686bb7e84d029ec66f9dbe76e65c93ebf"
+}

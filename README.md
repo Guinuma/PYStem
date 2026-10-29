@@ -118,6 +118,9 @@ amostrado do processo e descendentes, versões, hashes dos ficheiros fornecidos 
 validação de duração, taxa de amostragem, canais e valores finitos dos stems.
 Usar `--artifact <ficheiro>` repetidamente para identificar também os pesos Demucs
 da cache. O ambiente do motor opcional e o commit MSST são registados no JSON.
+Para comparar estes checkpoints, usar entrada estéreo a 44 100 Hz; outros formatos
+podem ser reamostrados pelo motor e serão assinalados como formato diferente pelo
+validador estrito, mesmo quando a separação em si terminou corretamente.
 
 O tempo inclui importação, carregamento, cópia temporária e exportação: não é só
 inferência. Cada repetição cria um processo novo; a cache de ficheiros do sistema
@@ -154,7 +157,21 @@ MDX23C (MSST no commit indicado, PyTorch/Torchaudio 2.6.0+cpu, NumPy 2.2.6), mes
 Ambos produziram `vocals.wav`, `other.wav` e `instrumental.wav` válidos e com
 formato igual à entrada. O primeiro ensaio inclui custos iniciais do ambiente
 opcional, incluindo possível compilação/cache de rotinas de áudio.
-BS-Roformer: ensaios em curso, resultados a registar.
+BS-Roformer viperx (mesmo ambiente opcional e entrada), quatro threads, lote 1,
+AMP desligado, overlap original 2:
+
+| Ensaio | Tempo total | Fator de tempo real | RSS amostrado da árvore |
+| --- | ---: | ---: | ---: |
+| 1 | 148,99 s | 18,62 | 2,74 GiB |
+| 2 | 155,08 s | 19,38 | 2,74 GiB |
+
+Ambos produziram `vocals.wav` e `instrumental.wav` válidos, finitos e com o formato
+da entrada. Os seis ensaios usaram a mesma entrada (SHA-256
+`fb1cce7eb57094256b8b7e77800429e7536295921b3670dd802c0eaf831c4f66`).
+Os modelos têm janelas, overlap e stems diferentes; estes valores descrevem o
+custo das configurações testadas, não uma comparação isolada das arquiteturas.
+Neste teste, o HTDemucs foi o mais rápido. Não é possível concluir qual tem melhor
+qualidade de separação a partir destes tempos ou deste áudio sintético.
 
 Relatórios JSON preservados em `docs/benchmarks/`; os manifests dos pesos em
 `docs/model-artifacts.json`; versões exatas do ambiente opcional em
