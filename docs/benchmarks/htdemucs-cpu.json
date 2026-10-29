@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "model": "htdemucs",
+  "device": "cpu",
+  "threads": 4,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "logical_cpus": 16,
+  "ram_bytes": 33667739648,
+  "audio": {
+    "name": "synthetic.wav",
+    "sha256": "fb1cce7eb57094256b8b7e77800429e7536295921b3670dd802c0eaf831c4f66",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration_seconds": 8.0
+  },
+  "synthetic": true,
+  "artifacts": [
+    {
+      "name": "955717e8.safetensors",
+      "bytes": 84025440,
+      "sha256": "d9fa14133cfcc034a6758923bb3a8ca9f8dfd0b582134643bbf83f72c17576dd"
+    }
+  ],
+  "versions": {
+    "demucs": "4.1.0",
+    "torch": "2.14.1",
+    "numpy": "1.26.4",
+    "psutil": "7.2.2"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 11.165715999901295,
+      "real_time_factor": 1.3957144999876618,
+      "sampled_peak_tree_rss_bytes": 1066565632,
+      "outputs_valid": true,
+      "stems": [
+        {
+          "file": "htdemucs\\synthetic\\bass.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "576228c11c2460c17e7228fef8ce95de8e6932b0c78d862dca6a86dc42b55965"
+        },
+        {
+          "file": "htdemucs\\synthetic\\drums.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "5fab7f563d219ef385e00307b5d153596afae52021175aa69d723016e46ddfe4"
+        },
+        {
+          "file": "htdemucs\\synthetic\\other.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "7a6a7d464c32076d286a157d1374f7edad2f0ced240c10d731a7d30ba0e80616"
+        },
+        {
+          "file": "htdemucs\\synthetic\\vocals.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "40fc3054f5b5e951a68de4333f66ac5fbc2abf9c108ac549f70f766ba335b950"
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 10.677582500036806,
+      "real_time_factor": 1.3346978125046007,
+      "sampled_peak_tree_rss_bytes": 1102602240,
+      "outputs_valid": true,
+      "stems": [
+        {
+          "file": "htdemucs\\synthetic\\bass.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "944ac37d982d4cdbda60039c4b42a165f22a50059f5cdfb0afb828daeda72417"
+        },
+        {
+          "file": "htdemucs\\synthetic\\drums.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "4f7e6fc8fe9074f657bbed2557ab5709e3d1f12f5f9a6acf91254862046e2496"
+        },
+        {
+          "file": "htdemucs\\synthetic\\other.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "b29c4f6ea03607a712bf3cdf844c31cc1d2dc752af0ce8829db01bb641feb5af"
+        },
+        {
+          "file": "htdemucs\\synthetic\\vocals.wav",
+          "sample_rate": 44100,
+          "channels": 2,
+          "duration_seconds": 8.0,
+          "finite": true,
+          "duration_matches": true,
+          "format_matches_input": true,
+          "sha256": "ff76cd5ba6131775e3fdb36dfdeeb2a394618357fe3eae3b4ed85fafb7e9a732"
+        }
+      ]
+    }
+  ],
+  "memory_method": "sampled sum RSS of CLI and descendants every 100ms; shared pages may be counted twice",
+  "timing_method": "end-to-end fresh process, includes imports, loading, staging and export; not inference-only",
+  "quality_metrics": null,
+  "versions_scope": "benchmark interpreter; optional MSST environment must be recorded separately"
+}

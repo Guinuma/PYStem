@@ -221,3 +221,7 @@ __marimo__/
 
 # PYStem generated audio
 output/
+# Optional local models and upstream engine
+models/
+.tools/
+.venv-models/

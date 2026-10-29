@@ -1,0 +1,2 @@
+# Small optional process-tree memory sampler. No model dependencies.
+psutil>=6,<8

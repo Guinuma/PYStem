@@ -1,42 +1,18 @@
+"""Backwards-compatible public entry point."""
 import subprocess
-import sys
-from pathlib import Path
+try:
+    from .backends import Options, run_separation
+except ImportError:
+    from backends import Options, run_separation
 
 
-def separate_audio(audio_path, output_dir="output"):
-    audio_file = Path(audio_path)
-
-    # Verify that the audio file exists
-    if not audio_file.is_file():
-        print(f"Error: File not found: {audio_file}")
-        return False
-
-    # Build the Demucs command
-    command = [
-        sys.executable,
-        "-m",
-        "demucs",
-        "--device",
-        "cpu",
-        "--out",
-        str(output_dir),
-        str(audio_file),
-    ]
-
-    print(f"\nSeparating: {audio_file.name}")
-    print("This may take a few minutes...\n")
-
+def separate_audio(audio_path, output_dir="output", *, model="htdemucs", **kwargs):
+    """Return success as before; engines use CPU and local model files only."""
+    print(f"\nSeparating with {model} on CPU...")
     try:
-        subprocess.run(command, check=True)
-
-    except subprocess.CalledProcessError:
-        print("\nError: Audio separation failed.")
+        result = run_separation(audio_path, output_dir, Options(model=model, **kwargs))
+    except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as error:
+        print(f"Error: Audio separation failed: {error}")
         return False
-
-    # Show where the separated stems were saved
-    output_path = Path(output_dir) / "htdemucs" / audio_file.stem
-
-    print("\nSeparation completed!")
-    print(f"Files saved to: {output_path.resolve()}")
-
+    print(f"\nSeparation completed!\nFiles saved to: {result}")
     return True
